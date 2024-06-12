@@ -11,4 +11,27 @@ export default class ProductController{
        }
 
 
+       getAddFor(req,res){
+            return  res.render('new-product');
+       }
+
+       // 1st way 
+//       addNewProduct(req,res){
+//        console.log(req.body);
+//        ProductModel.add(req.body);
+//        let product = ProductModel.get();
+      
+//        res.render("product", {product});
+//       }
+
+// 2nd way
+addNewProduct(req,res){
+       console.log(req.body);
+       ProductModel.add(req.body.name,req.body.desc,req.body.price,req.body.imageUrl);
+       let product = ProductModel.get();
+      
+       res.render("product", {product});
+      }
 }
+
+
