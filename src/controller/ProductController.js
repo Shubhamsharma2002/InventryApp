@@ -12,7 +12,7 @@ export default class ProductController{
 
 
        getAddFor(req,res){
-            return  res.render('new-product');
+            return  res.render('new-product', {errorMessage:null});
        }
 
        // 1st way 
@@ -26,6 +26,7 @@ export default class ProductController{
 
 // 2nd way
 addNewProduct(req,res){
+      
        console.log(req.body);
        ProductModel.add(req.body.name,req.body.desc,req.body.price,req.body.imageUrl);
        let product = ProductModel.get();

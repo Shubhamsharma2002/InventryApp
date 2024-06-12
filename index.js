@@ -1,6 +1,7 @@
 
  import expres from "express";
  import ProductController from "./src/controller/ProductController.js";
+ import validateRequest from "./src/Middleware/validationMiddleware.js";
  import path from 'path';
  import ejsLayout from 'express-ejs-layouts';
  const port = 8000;
@@ -16,7 +17,7 @@ const productController = new ProductController();
 
 server.get('/', productController.getproducts);
 server.get('/addProduct', productController.getAddFor);
-server.post('/', productController.addNewProduct);
+server.post('/', validateRequest,productController.addNewProduct);
 server.use(expres.static('src/View'));
 server.listen(port, (req, res)=>{
     console.log(`server is running  on port No ${port}`);
