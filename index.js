@@ -18,6 +18,7 @@ const productController = new ProductController();
 server.get('/', productController.getproducts);
 server.get('/addProduct', productController.getAddFor);
 server.get('/upadte/:id', productController.updateproductview);
+server.get('/delete/:id', productController.deleteProduct);
 server.post('/upadteProduct', productController.postupdatedproduct);
 server.post('/', validateRequest,productController.addNewProduct);
 server.use(expres.static('src/View'));

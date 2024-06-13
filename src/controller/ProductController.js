@@ -52,6 +52,17 @@ addNewProduct(req,res){
       
        res.render("product", {product});
       }
+
+      deleteProduct(req, res){
+         const id = req.params.id;
+         const ProductFoud = ProductModel.getbyID(id);
+       if(!ProductFoud){
+              res.status(401).send("product Not found");
+       }
+       ProductModel.delete(id);
+       let product = ProductModel.get();
+       res.render("product", {product});
+      }
 }
 
 

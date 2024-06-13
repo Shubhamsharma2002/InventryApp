@@ -35,6 +35,13 @@ static upadte(productobj){
   products[index] = productobj
 
 }
+
+static delete(id){
+  const index = products.findIndex(
+    (p) => p.id == id
+  );
+  products.splice(index,1);
+}
 }
 
 
