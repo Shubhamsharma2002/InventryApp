@@ -6,6 +6,7 @@
  import ejsLayout from 'express-ejs-layouts';
  const port = 8000;
 const  server = expres();
+server.use(expres.static('public'));
 // parse form data
 server.use(expres.urlencoded({extended:true}));
 // setting the view engine
@@ -18,7 +19,7 @@ const productController = new ProductController();
 server.get('/', productController.getproducts);
 server.get('/addProduct', productController.getAddFor);
 server.get('/upadte/:id', productController.updateproductview);
-server.get('/delete/:id', productController.deleteProduct);
+server.post('/delete/:id', productController.deleteProduct);
 server.post('/upadteProduct', productController.postupdatedproduct);
 server.post('/', validateRequest,productController.addNewProduct);
 server.use(expres.static('src/View'));
