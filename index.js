@@ -4,6 +4,7 @@
  import validateRequest from "./src/Middleware/validationMiddleware.js";
  import path from 'path';
  import ejsLayout from 'express-ejs-layouts';
+import  {uploadfile}  from "./src/Middleware/fileUploadMiddleware.js";
  const port = 8000;
 const  server = expres();
 server.use(expres.static('public'));
@@ -21,7 +22,7 @@ server.get('/addProduct', productController.getAddFor);
 server.get('/upadte/:id', productController.updateproductview);
 server.post('/delete/:id', productController.deleteProduct);
 server.post('/upadteProduct', productController.postupdatedproduct);
-server.post('/', validateRequest,productController.addNewProduct);
+server.post('/',uploadfile.single('imageUrl'),validateRequest,productController.addNewProduct);
 server.use(expres.static('src/View'));
 server.listen(port, (req, res)=>{
     console.log(`server is running  on port No ${port}`);
