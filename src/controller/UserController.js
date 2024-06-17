@@ -31,7 +31,21 @@ export default class UserController{
         }
         else{
             req.session.userEmail = email;
-            res.render('product', {product});
+            res.render('product', {product,userEmail: req.session.userEmail});
         }
+    }
+
+
+    logout(req,res){
+
+        // on logout we destory the session
+       
+        req.session.destroy((err) =>{
+            if(err){
+                console.log(err);
+            }else{
+                res.redirect('/login');
+            }
+        })
     }
 }

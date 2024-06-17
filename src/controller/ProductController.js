@@ -7,12 +7,12 @@ export default class ProductController{
        //        console.log(Product);
        //  console.log(path.resolve());
        // res.sendFile(path.join(path.resolve(),'src','View','index.ejs'));
-       res.render("product", {product});
+       res.render("product", {product, userEmail: req.session.userEmail});
        }
 
 
        getAddFor(req,res){
-            return  res.render('new-product', {errorMessage:null});
+            return  res.render('new-product', {errorMessage:null,userEmail: req.session.userEmail});
        }
 
        // 1st way 
@@ -32,7 +32,7 @@ addNewProduct(req,res,next){
        ProductModel.add(name,desc,price,imageUrl);
        let product = ProductModel.get();
       
-       res.render("product", {product});
+       res.render("product", {product,userEmail: req.session.userEmail});
       }
 
 
@@ -40,7 +40,7 @@ addNewProduct(req,res,next){
        const {id} = req.params;
        const ProductFoud = ProductModel.getbyID(id);
        if(ProductFoud){
-              res.render("update-product", {product:ProductFoud , errorMessage:null});
+              res.render("update-product", {product:ProductFoud , errorMessage:null,userEmail: req.session.userEmail});
        }else{
               res.status(401).send("Product Not Found");
        }
@@ -51,7 +51,7 @@ addNewProduct(req,res,next){
        ProductModel.upadte(req.body);
        let product = ProductModel.get();
       
-       res.render("product", {product});
+       res.render("product", {product,userEmail: req.session.userEmail});
       }
 
       deleteProduct(req, res){
@@ -62,7 +62,7 @@ addNewProduct(req,res,next){
        }
        ProductModel.delete(id);
        let product = ProductModel.get();
-       res.render("product", {product});
+       res.render("product", {product,userEmail: req.session.userEmail});
       }
 }
 

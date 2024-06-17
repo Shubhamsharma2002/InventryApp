@@ -32,6 +32,7 @@ server.get('/register', userController.getRegister);
 server.get('/login', userController.getLogin);
 server.post('/register', userController.postregister);
 server.post('/login', userController.postlogin);
+server.get('/logout', userController.logout);
 server.get('/addProduct',auth, productController.getAddFor);
 server.get('/upadte/:id',auth, productController.updateproductview);
 server.post('/delete/:id',auth, productController.deleteProduct);
