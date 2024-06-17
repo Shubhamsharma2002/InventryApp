@@ -8,9 +8,13 @@ import  {uploadfile}  from "./src/Middleware/fileUploadMiddleware.js";
 import UserController from "./src/controller/UserController.js";
 import session from "express-session";
 import { auth } from "./src/Middleware/sessionMiddleware.js";
+import cookieParser from "cookie-parser";
+import { setlastVisit } from "./src/Middleware/lastVisitMiddleware.js";
  const port = 8000;
 const  server = expres();
 server.use(expres.static('public'));
+server.use(cookieParser());
+// server.use(setlastVisit);
 // express sesion
 server.use(session({
     secret:'Secretkey',
@@ -33,7 +37,7 @@ server.get('/login', userController.getLogin);
 server.post('/register', userController.postregister);
 server.post('/login', userController.postlogin);
 server.get('/logout', userController.logout);
-server.get('/addProduct',auth, productController.getAddFor);
+server.get('/addProduct',auth, setlastVisit,productController.getAddFor);
 server.get('/upadte/:id',auth, productController.updateproductview);
 server.post('/delete/:id',auth, productController.deleteProduct);
 server.post('/upadteProduct', auth,productController.postupdatedproduct);

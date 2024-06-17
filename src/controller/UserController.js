@@ -31,7 +31,7 @@ export default class UserController{
         }
         else{
             req.session.userEmail = email;
-            res.render('product', {product,userEmail: req.session.userEmail});
+            res.render('product', {product,userEmail: req.session.userEmail,lastVisit: req.cookies.lastVisit});
         }
     }
 
@@ -44,8 +44,11 @@ export default class UserController{
             if(err){
                 console.log(err);
             }else{
+                // deleting cookies
+                res.clearCookie('lastVisit');
                 res.redirect('/login');
             }
         })
+        
     }
 }
