@@ -21,6 +21,8 @@ const userController = new UserController();
 server.get('/', productController.getproducts);
 server.get('/register', userController.getRegister);
 server.get('/login', userController.getLogin);
+server.post('/register', userController.postregister);
+server.post('/login', userController.postlogin);
 server.get('/addProduct', productController.getAddFor);
 server.get('/upadte/:id', productController.updateproductview);
 server.post('/delete/:id', productController.deleteProduct);
