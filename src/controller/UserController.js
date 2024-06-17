@@ -30,6 +30,7 @@ export default class UserController{
             res.send('invalid cred');
         }
         else{
+            req.session.userEmail = email;
             res.render('product', {product});
         }
     }
