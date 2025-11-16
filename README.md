@@ -1,35 +1,45 @@
-# 🛒 Product Management App (Node.js + Express + EJS)
+# 🛒 Inventory Management App (Node.js + Express + EJS)
 
-A simple **Product Management Web App** built using **Node.js, Express, EJS**, and MVC architecture.  
-This project includes **authentication**, **file upload**, **sessions**, **cookies**, and custom middleware.
+A simple and clean **Inventory Management Web App** built using **Node.js, Express.js, EJS, and MVC architecture**.  
+This project supports **user authentication**, **product management**, **file uploads**, **sessions**, **cookies**, and **custom middleware**.
 
 ---
 
 ## 🚀 Features
 
-- User Registration & Login (Session-based Authentication)
-- Add, Update & Delete Products
-- File Upload using Multer
-- Form Validation Middleware
-- Cookie Tracking (Last Visit)
-- MVC Folder Architecture
-- EJS Templates with Layout Support
-- Protected Routes with `auth` Middleware
+- 🔐 User Authentication (Register + Login + Logout)
+- 📦 Add, Edit & Delete Products
+- 🖼️ Image Upload using Multer
+- ✔️ Validation Middleware
+- 🍪 Last Visit Cookie Tracking
+- 🧩 Clean MVC Architecture
+- 🎨 EJS View Templates with Layouts
+- 🛡️ Protected Routes using session-based auth
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Node.js**
-- **Express.js**
-- **EJS (View Engine)**
-- **express-ejs-layouts**
-- **Multer (File Upload)**
-- **express-session**
-- **cookie-parser**
+| Layer | Technology |
+|------|-------------|
+| Backend | Node.js, Express.js |
+| View Engine | EJS + express-ejs-layouts |
+| Middleware | express-session, Multer, cookie-parser |
+| Architecture | MVC |
+| Styling | CSS (public folder) |
 
 ---
+--- 
+
+## 🌐 Live Demo
+
+Check out the live version of this app here:  
+[https://inventry-app-eight.vercel.app/](https://inventry-app-eight.vercel.app/)
+
+---
+
 ## 📁 Folder Structure
+
 
 ``` 
 
@@ -72,3 +82,50 @@ INVENTRYAPP/
 
 
 ```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+### 2️⃣ Install Dependencies
+
+### 3️⃣ Start the Server
+
+---
+
+Server will run on:
+
+👉 http://localhost:8000
+
+---
+
+## 📌 Routes Overview
+
+### 🔹 Public Routes
+
+| Method | Route | Description |
+|--------|--------|-------------|
+| GET | `/` | Show all products |
+| GET | `/login` | Login page |
+| GET | `/register` | Registration page |
+| POST | `/login` | Handle login form |
+| POST | `/register` | Handle registration form |
+
+---
+
+### 🔹 Protected Routes (Login Required)
+
+| Method | Route | Description |
+|--------|--------|-------------|
+| GET | `/addProduct` | Product creation form |
+| POST | `/` | Add new product |
+| GET | `/upadte/:id` | Edit product page |
+| POST | `/upadteProduct` | Update product |
+| POST | `/delete/:id` | Delete product |
+| GET | `/logout` | Logout user |
+
+---
+
+
